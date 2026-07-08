@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function ApplicationForm() {
+export default function ApplicationForm({ onAdd }) {
 
     const [formData, setformData] = useState({
         company: "",
@@ -14,17 +14,28 @@ export default function ApplicationForm() {
     function handleChange(e) {
         setformData({
             ...formData,
-            [e.target.name]: [e.target.value]
+            [e.target.name]: e.target.value
         })
     }
 
     function handleSubmit(e) {
         e.preventDefault()
+        console.log("Submit clicked");
 
-        if( !formData.company || !formData.role){
-            alert("")
+        if (!formData.company || !formData.role) {
+            alert("Please fill in both Company and Role.")
+            return;
         }
-        console.log(formData);
+        onAdd(formData)
+        setformData({
+            company: "",
+            role: "",
+            status: "applied",
+            dateApplied: "",
+            link: "",
+            notes: "",
+        });
+
 
     }
 
@@ -111,7 +122,7 @@ export default function ApplicationForm() {
                         className="flex-1 bg-white/10 border border-white/15 text-white rounded-lg py-2 hover:bg-white/15 transition">
                         Cancel</button>
 
-            
+
                     <button type="submit"
                         className="flex-1 bg-navy-200/25 border border-navy-200/40 text-white rounded-lg py-2 hover:bg-navy-200/35 transition">
                         Add Application</button>
