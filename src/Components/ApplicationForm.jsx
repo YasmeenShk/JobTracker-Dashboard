@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function ApplicationForm({ onAdd }) {
+export default function ApplicationForm({ onAdd, onClose }) {
 
     const [formData, setformData] = useState({
         company: "",
@@ -20,22 +20,13 @@ export default function ApplicationForm({ onAdd }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log("Submit clicked");
 
         if (!formData.company || !formData.role) {
             alert("Please fill in both Company and Role.")
             return;
         }
-        onAdd(formData)
-        setformData({
-            company: "",
-            role: "",
-            status: "applied",
-            dateApplied: "",
-            link: "",
-            notes: "",
-        });
-
+        onAdd({ id: Date.now(), ...formData });
+        onClose();
 
     }
 
@@ -43,7 +34,8 @@ export default function ApplicationForm({ onAdd }) {
         <div className="bg-white/10 backdrop-blur-xl border border-white/15 rounded-2xl p-6 max-w-sm mx-auto">
             <div className="flex justify-between items-center mb-5">
                 <h2 className="text-white font-medium text-lg">Add Application</h2>
-                <button className="text-navy-100 hover:text-white">✕</button>
+                <button onClick={onClose}
+                    className="text-navy-100 hover:text-white">✕</button>
             </div>
 
             <form onSubmit={handleSubmit}
@@ -110,15 +102,15 @@ export default function ApplicationForm({ onAdd }) {
                 <div>
                     <label className="text-navy-100 text-xs block mb-1">Notes (optional)</label>
                     <textarea name="notes"
+                        value={formData.notes}
+                        onChange={handleChange}
                         placeholder="Hr name , referral"
                         className="w-full bg-white/10 border border-white/15 text-white placeholder-navy-100/60 rounded-lg px-3 py-2 resize-none focus:outline-none focus:border-navy-200"></textarea>
                 </div>
 
                 <div className="flex  gap-2 mt-3">
-                    <button type="buttom"
-                        name='notes'
-                        value={formData.notes}
-                        onChange={handleChange}
+                    <button onClick={onClose}
+                        type="button"
                         className="flex-1 bg-white/10 border border-white/15 text-white rounded-lg py-2 hover:bg-white/15 transition">
                         Cancel</button>
 
