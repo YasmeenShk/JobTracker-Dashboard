@@ -20,7 +20,7 @@ function Charts({ application }) {
     const weekData = getWeeklyData(application);
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
 
             {/* pie chart */}
             <div className="bg-white/10 backdrop-blur-xl border border-white/15 rounded-2xl p-4">

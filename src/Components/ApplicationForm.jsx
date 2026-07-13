@@ -31,15 +31,15 @@ export default function ApplicationForm({ onAdd, onClose }) {
     }
 
     return (
-        <div className="bg-white/10 backdrop-blur-xl border border-white/15 rounded-2xl p-6 max-w-sm mx-auto">
-            <div className="flex justify-between items-center mb-5">
-                <h2 className="text-white font-medium text-lg">Add Application</h2>
+        <div className="bg-white/10 backdrop-blur-xl border border-white/15 rounded-2xl p-5 sm:p-6">
+            <div className="flex justify-between items-center mb-5 sm:mb-5">
+                <h2 className="text-white font-medium text-base sm:text-lg">Add Application</h2>
                 <button onClick={onClose}
                     className="text-navy-100 hover:text-white">✕</button>
             </div>
 
             <form onSubmit={handleSubmit}
-                className="flex flex-col gap-3">
+                className="flex flex-col gap-2.5 sm:gap-3">
                 <div>
                     <label
                         className="text-navy-100 text-xs block mb-1">Company Name</label>
