@@ -48,7 +48,7 @@ export default function ApplicationForm({ onAdd, onClose }) {
                         placeholder="e.g. Zomato"
                         value={formData.company}
                         onChange={handleChange}
-                        className="w-full bg-white/10 border border-white/15 text-white placeholder-navy-100/60 rounded-lg px-3 py-2 focus:outline-none focus:border-navy-200"
+                        className="w-full bg-white/10 border border-white/15 text-white placeholder-navy-100/60 rounded-lg px-3 py-2 transition-all duration-200 hover:border-white/25 focus:outline-none focus:border-navy-200 focus:bg-white/15"
                     />
                 </div>
 
@@ -111,12 +111,12 @@ export default function ApplicationForm({ onAdd, onClose }) {
                 <div className="flex  gap-2 mt-3">
                     <button onClick={onClose}
                         type="button"
-                        className="flex-1 bg-white/10 border border-white/15 text-white rounded-lg py-2 hover:bg-white/15 transition">
+                        className="flex-1 bg-white/10 border border-white/15 text-white rounded-lg py-2 transition-all duration-200 hover:bg-white/20">
                         Cancel</button>
 
 
                     <button type="submit"
-                        className="flex-1 bg-navy-200/25 border border-navy-200/40 text-white rounded-lg py-2 hover:bg-navy-200/35 transition">
+                        className="flex-1 bg-navy-200/25 border border-navy-200/40 text-white rounded-lg py-2 transition-all duration-200 hover:bg-navy-200/40 hover:scale-[1.02]">
                         Add Application</button>
                 </div>
             </form>

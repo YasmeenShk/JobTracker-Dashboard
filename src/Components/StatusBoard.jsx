@@ -21,7 +21,7 @@ export default function StatusBoard({ application, onDelete }) {
                         <h3 className="text-navy-100 text-sm font-medium mb-3">
                             {col.label} ({filteredApps.length})
                         </h3>
-                        <div className="flex flex-col gap-3"> 
+                        <div className="flex flex-col gap-3">
                             {filteredApps.length === 0 ? (
                                 <p className="text-navy-100/50 text-xs">No Application Yet</p>
                             ) : (

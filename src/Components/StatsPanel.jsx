@@ -13,7 +13,7 @@ export default function StatsPanel({ application }) {
         { label: "Total applied", value: total },
         { label: "Interviews", value: interviews },
         { label: "Offers", value: offers },
-        { label: "Response rate", value: `${responseRate}%`},
+        { label: "Response rate", value: `${responseRate}%` },
     ]
 
     return (

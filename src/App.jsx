@@ -1,8 +1,9 @@
-import { useState , useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import ApplicationForm from "./Components/ApplicationForm";
 import ApplicationCard from './Components/ApplicationCard';
 import StatsPanel from "./Components/StatsPanel";
 import StatusBoard from './Components/StatusBoard';
+import Charts from "./Components/Charts";
 
 function App() {
   const [application, setapplication] = useState(() => { //local storage return data if available / empty array
@@ -33,7 +34,7 @@ function App() {
         <h1 className="text-white text-2xl font-medium">Job application tracker</h1>
         <button
           onClick={() => setshowForm(true)}
-          className="bg-navy-200/25 border border-navy-200/40 text-white rounded-lg px-4 py-2"
+          className="bg-navy-200/25 border border-navy-200/40 text-white rounded-lg px-4 py-2 transition-all duration-200 hover:bg-navy-200/40 hover:border-navy-200/60 hover:scale-105"
         >
           + Add application
         </button>
@@ -45,21 +46,9 @@ function App() {
         </div>
       )}
 
-       <StatsPanel application={application} />
-       <StatusBoard application={application} onDelete={onDelete}  />
-
-      {/* application card */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {application.map((app) => (
-          <ApplicationCard
-            key={app.id}
-            application={app}
-            onDelete={onDelete}
-          />
-        ))}
-      </div> */}
-
-     
+      <StatsPanel application={application} />
+      <Charts application={application} />
+      <StatusBoard application={application} onDelete={onDelete} />
 
     </div>
   )

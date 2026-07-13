@@ -8,9 +8,9 @@ export default function ApplicationCard({ application, onDelete }) {
     };
 
     return (
-        <div className="bg-white/10 backdrop-blur-xl border border-white/15 rounded-2xl p-4 relative min-h-45">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/15 rounded-2xl p-4 relative min-h-45 transition-all duration-200 hover:bg-white/15 hover:border-white/25 hover:-translate-y-1 hover:shadow-lg hover:shadow-navy-900/50">
             <button onClick={() => onDelete(application.id)}
-                className="text-navy-100 hover:text-white text-sm absolute top-3 right-3">✕</button>
+                className="absolute top-3 right-3 text-navy-100 hover:text-red-400 hover:scale-110 transition-all duration-150 text-sm">✕</button>
 
             <h3 className="text-white font-medium">{application.company}</h3>
 
