@@ -1,10 +1,20 @@
-import { useState } from 'react'
+import { useState , useEffect } from 'react'
 import ApplicationForm from "./Components/ApplicationForm";
 import ApplicationCard from './Components/ApplicationCard';
+import StatsPanel from "./Components/StatsPanel";
 
 function App() {
-  const [application, setapplication] = useState([])
+  const [application, setapplication] = useState(() => { //local storage return data if available / empty array
+    const saved = localStorage.getItem("application")
+    return saved ? JSON.parse(saved) : []
+  })
+
   const [showForm, setshowForm] = useState(false)
+
+  useEffect(() => {
+    localStorage.setItem("application", JSON.stringify(application))
+  }, [application]) //data add/dlt will automatically saved in localstorage
+
 
   function onAdd(newApplication) {
     setapplication([...application, newApplication])
@@ -34,6 +44,9 @@ function App() {
         </div>
       )}
 
+       <StatsPanel application={application} />
+
+      {/* application card */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {application.map((app) => (
           <ApplicationCard
@@ -43,6 +56,8 @@ function App() {
           />
         ))}
       </div>
+
+     
 
     </div>
   )
