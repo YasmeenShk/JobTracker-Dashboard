@@ -2,6 +2,7 @@ import { useState , useEffect } from 'react'
 import ApplicationForm from "./Components/ApplicationForm";
 import ApplicationCard from './Components/ApplicationCard';
 import StatsPanel from "./Components/StatsPanel";
+import StatusBoard from './Components/StatusBoard';
 
 function App() {
   const [application, setapplication] = useState(() => { //local storage return data if available / empty array
@@ -18,7 +19,7 @@ function App() {
 
   function onAdd(newApplication) {
     setapplication([...application, newApplication])
-    setShowForm(false) //close form after add
+    setshowForm(false) //close form after add
   }
 
   function onDelete(id) {
@@ -45,9 +46,10 @@ function App() {
       )}
 
        <StatsPanel application={application} />
+       <StatusBoard application={application} onDelete={onDelete}  />
 
       {/* application card */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {application.map((app) => (
           <ApplicationCard
             key={app.id}
@@ -55,7 +57,7 @@ function App() {
             onDelete={onDelete}
           />
         ))}
-      </div>
+      </div> */}
 
      
 
