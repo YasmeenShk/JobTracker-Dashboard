@@ -36,8 +36,8 @@ Built while actively job hunting — every feature here is something I needed my
 ## Getting started locally
 
 ```bash
-git clone https://github.com/YasmeenShk/job-application-tracker.git
-cd job-application-tracker
+git clone https://github.com/YasmeenShk/JobTracker-Dashboard.git
+cd job-tracker
 npm install
 npm run dev
 ```
