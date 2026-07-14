@@ -4,9 +4,9 @@ A glassmorphic, dark-themed dashboard to track job applications — built to sol
 
 **🔗 Live demo:** [job-application-tracker-ys.vercel.app](https://job-application-tracker-ys.vercel.app/)
 
-![Dashboard overview](./screenshots/dashboard-overview.png)
+![Dashboard overview](./Images/Dashboard.png)
 
-![Add application form](./screenshots/add-application-form.png)
+![Add application form](./Images/Form.png)
 
 ---
 
