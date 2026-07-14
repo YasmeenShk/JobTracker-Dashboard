@@ -1,6 +1,6 @@
 import ApplicationCard from "./ApplicationCard";
 
-export default function StatusBoard({ application, onDelete }) {
+export default function StatusBoard({ application, onDelete , onUpdateStatus }) {
 
     const columns = [
         { key: "applied", label: "Applied" },
@@ -30,6 +30,7 @@ export default function StatusBoard({ application, onDelete }) {
                                         key={app.id}
                                         application={app}
                                         onDelete={onDelete}
+                                        onUpdateStatus={onUpdateStatus}
                                     />
                                 ))
                             )}

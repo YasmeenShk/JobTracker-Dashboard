@@ -27,6 +27,12 @@ function App() {
     setapplication(application.filter(app => app.id !== id)) //only true value rhegi
   }
 
+  function onUpdateStatus(id, newStatus) {  //for status change like interview to offer
+    setapplication(application.map(app =>
+      app.id === id ? { ...app, status: newStatus } : app
+    ));
+  }
+
   return (
     <div className='min-h-screen bg-linear-to-br from-navy-900 via-navy-700 to-navy-500 p-8'>
 
@@ -43,14 +49,14 @@ function App() {
       {showForm && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="max-h-[90vh] overflow-y-auto w-full max-w-sm">
-            <ApplicationForm onAdd={onAdd} onClose={() => setshowForm(false)} />
+            <ApplicationForm onAdd={onAdd} onClose={() => setshowForm(false)}  />
           </div>
         </div>
       )}
 
       <StatsPanel application={application} />
       <Charts application={application} />
-      <StatusBoard application={application} onDelete={onDelete} />
+      <StatusBoard application={application} onDelete={onDelete} onUpdateStatus={onUpdateStatus} />
 
     </div>
   )

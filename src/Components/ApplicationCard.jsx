@@ -1,4 +1,4 @@
-export default function ApplicationCard({ application, onDelete }) {
+export default function ApplicationCard({ application, onDelete, onUpdateStatus }) {
 
     const statusColors = {
         applied: "bg-navy-500/25 border-navy-500/40 text-white",
@@ -17,10 +17,16 @@ export default function ApplicationCard({ application, onDelete }) {
             <p className="text-navy-100 text-sm mt-1">{application.role} </p>
 
             <div className="flex items-center justify-between mt-3">
-                <span
-                    className={`text-xs px-2 py-1 rounded-full border ${statusColors[application.status]}`}>
-                    {application.status} </span>
-
+                <select
+                    value={application.status}
+                    onChange={(e) => onUpdateStatus(application.id, e.target.value)}
+                    className={`text-xs px-2 py-1 rounded-full border cursor-pointer ${statusColors[application.status]}`}
+                >
+                    <option value="applied" className="text-black">Applied</option>
+                    <option value="interview" className="text-black">Interview</option>
+                    <option value="offer" className="text-black">Offer</option>
+                    <option value="rejected" className="text-black">Rejected</option>
+                </select>
                 <span className="text-navy-100 text-xs">{application.dateApplied}</span>
             </div>
 
