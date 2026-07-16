@@ -1,6 +1,6 @@
 # Job Application Tracker
 
-A glassmorphic, dark-themed dashboard to track job applications — built to solve a real problem while job hunting: keeping applications, interview stages, and outcomes organized in one place instead of scattered across notes and spreadsheets.
+A glassmorphic, dark-themed dashboard to track job applications — built to solve a real problem while job hunting: keeping applications, interview stages, and outcomes organized in one place instead of s
 
 **🔗 Live demo:** [job-application-tracker-ys.vercel.app](https://job-application-tracker-ys.vercel.app/)
 
